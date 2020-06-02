@@ -1,0 +1,28 @@
+body{
+    font-family: Arial, Helvetica, sans-serif; 
+    background-image: url("pattern.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.heading {
+    font-size: 100px;
+    font-weight: bold;
+    color: khaki;
+    text-align: center;
+    background-image: url("heading.jpeg");
+    margin-top: 12px;
+}
+
+.subcats {
+    font-size: 30px;
+    font-weight: bold;
+    color: whitesmoke;
+    text-align: left;
+}
+
+.price {
+    font-weight: bold;
+    color: blue;
+    background-color: yellow;
+}
