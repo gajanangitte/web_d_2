@@ -9,7 +9,7 @@
     "start": "nodemon --watch server.js --watch server/",
     "postinstall": "webpack"
   },
-  "author": "Codecademy",
+  "author": "Gajanan Gitte",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
