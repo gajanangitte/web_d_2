@@ -4,33 +4,48 @@ import Axios from 'axios';
 export default function Search() {
     
     const [term, setTerm] = useState('');
+    const [debouncedTerm, setDebouncedTerm] = useState(term);
     const [results, setResults] = useState([]);
     
-    
+    useEffect( () => {
+        const timerId = setTimeout(() => {
+            setDebouncedTerm(term);
+        }, 500);
+
+        return(() => {
+            clearTimeout(timerId);
+        })
+    }, [term] );
 
     useEffect(() => {
         
         const searchWiki = async () => {
-           const {data} = await Axios.get('https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srsearch='+term);
-        
-           if(term)
-            setResults(data.query.search);
-        }
-        
-        searchWiki();
-        
-        }, [term] );
+            const {data} = await Axios.get('https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srlimit=15&origin=*&srsearch='+debouncedTerm);
+         
+            if(debouncedTerm)
+             setResults(data.query.search);
+         }
+ 
+         searchWiki();
+
+    }, [debouncedTerm])
 
     
     const renderResults =  results.map((result, index) => {
 
             return (
                 <div className='item' key={index}>
+                    <div className='right floated content'>
+                        <a href={`http://en.wikipedia.org?curid=${result.pageid}`} className='ui button'>
+                            Go
+                        </a>
+                    </div>
                     <div className='content'>
                         <div className='header'>
                             {result.title}
                         </div>
-                        {result.snippet}
+                        <span dangerouslySetInnerHTML={{__html: result.snippet}}> 
+                        </span>
                     </div>
                 </div>
             )
@@ -50,7 +65,7 @@ export default function Search() {
                     />
                 </div>
                 <div className='ui celled list'>
-                    {renderResults}
+                       {renderResults}
                 </div>
             </div>
         </div>
