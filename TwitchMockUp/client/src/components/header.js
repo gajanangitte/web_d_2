@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import GoogleAuth from './GoogleAuth'
 
 
 function Header() {
@@ -14,6 +15,8 @@ function Header() {
                 <Link to='/' className='item'>
                     All Steams
                 </Link>
+
+                <GoogleAuth />
 
             </div>
         </div>
