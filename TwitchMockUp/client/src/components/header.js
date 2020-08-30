@@ -10,6 +10,7 @@ function Header() {
             <Link to='/' className='item'>
                 Steamy
             </Link>
+
             <div className='right menu'>
 
                 <Link to='/' className='item'>
