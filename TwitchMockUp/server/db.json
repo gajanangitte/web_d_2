@@ -1,3 +1,14 @@
 {
-    "streams": []
+  "steams": [
+    {
+      "title": "My Steam",
+      "description": "The main steam that I own",
+      "id": 1
+    },
+    {
+      "title": "Other Steam",
+      "description": "The side steam I own ",
+      "id": 2
+    }
+  ]
 }

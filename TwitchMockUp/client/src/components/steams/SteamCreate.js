@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'; 
+import {connect} from 'react-redux';
+import {createSteam} from '../../actions'
 
 class StreamCreate extends Component {
 
@@ -7,7 +9,7 @@ class StreamCreate extends Component {
         if(touched && error) {
             return (
                 <div className='ui error message'>
-                        {error}
+                         {error}
                 </div>
             )
         } 
@@ -28,8 +30,9 @@ class StreamCreate extends Component {
         )
     }
 
-    onSumbit(formValues) {
-       console.log(formValues); 
+    onSumbit = (formValues) => {
+    //    console.log(formValues); 
+    this.props.createSteam(formValues);
     }
 
     render() {
@@ -58,7 +61,9 @@ const validate = (formValues) => {
 
 }
 
-export default reduxForm({
+const formWrapped =  reduxForm({
     form: 'streamCreate',
     validate: validate,
 })(StreamCreate);
+
+export default connect(null, {createSteam})(formWrapped)
