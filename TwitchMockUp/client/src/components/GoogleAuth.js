@@ -11,7 +11,7 @@ import { signIn, signOut } from '../actions'
                 scope: 'email'
             }).then( () => {
                 this.auth = window.gapi.auth2.getAuthInstance();
-                
+                  
                 this.onAuthChange(this.auth.isSignedIn.get())
                 this.auth.isSignedIn.listen(this.onAuthChange);
             })

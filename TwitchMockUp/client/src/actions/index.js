@@ -65,5 +65,6 @@ export const deleteSteam = (id, formValues) => {
         await steams.delete(`/steams/${id}`)
 
         dispatch({type: DELETE_STEAM, payload: id})
+        history.push('/')
     }
 }
