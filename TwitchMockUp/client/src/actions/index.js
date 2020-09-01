@@ -23,8 +23,10 @@ export const signOut = () => {
 }
 
 export const createSteam = (formValues) => {
-    return async (dispatch) => {
-       const response = await steams.post('/steams', formValues)
+    return async (dispatch, getState) => {
+    
+       const { userId } = getState().auth;
+       const response = await steams.post('/steams', {...formValues, userId})
      
     dispatch({ type: CREATE_STEAM, payload: response.data })
     }

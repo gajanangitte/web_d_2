@@ -3,12 +3,20 @@
     {
       "title": "My Steam",
       "description": "The main steam that I own",
-      "id": 1
+      "id": 1,
+      "userId": "105794806221953039780"
     },
     {
       "title": "Other Steam",
       "description": "The side steam I own ",
-      "id": 2
+      "id": 2,
+      "userId": "105794806221953039780"
+    },
+    {
+      "title": "Oh New Steam",
+      "description": "Yes it is it and that too is it",
+      "userId": "116102915689340837025",
+      "id": 3
     }
   ]
 }

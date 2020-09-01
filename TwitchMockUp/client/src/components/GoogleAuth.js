@@ -42,7 +42,7 @@ import { signIn, signOut } from '../actions'
             return <div></div>
         } else if (this.props.isSignedIn) {
             return (
-                <button className='ui red  google button' onClick={this.onSignOutClick}>
+                <button className='ui orange google button' onClick={this.onSignOutClick}>
                     <i className='google icon' />
                         Sign Out
                     
@@ -50,7 +50,7 @@ import { signIn, signOut } from '../actions'
             )
         } else {
             return (
-                <button className='ui green  google button' onClick={this.onSignInClick}>
+                <button className='ui yellow  google button' onClick={this.onSignInClick}>
                     <i className='google icon' />
                         Sign In with Google
                 </button>
