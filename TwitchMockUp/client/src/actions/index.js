@@ -8,6 +8,7 @@ import {
     DELETE_STEAM,
     EDIT_STEAM,
     } from "./types";
+import history from '../history';
 
 export const signIn = (userId) => {
     return {
@@ -29,7 +30,8 @@ export const createSteam = (formValues) => {
        const response = await steams.post('/steams', {...formValues, userId})
      
     dispatch({ type: CREATE_STEAM, payload: response.data })
-    }
+    history.push('/')
+}
 
 }
 
@@ -51,9 +53,10 @@ export const fetchSteam = (id) => {
 
 export const editSteam = (id, formValues) => {
     return async (dispatch) => {
-        const response = await steams.put(`/steams/${id}`, formValues)
+        const response = await steams.patch(`/steams/${id}`, formValues)
 
         dispatch({type: EDIT_STEAM, payload: response.data})
+        history.push('/')
     }
 }
 

@@ -13,14 +13,11 @@ class StreamList extends React.Component {
     renderAdmin(steam) {
         if (steam.userId === this.props.currentUserId) {
            return (
-               <div className='ui right floated contentS'>
-               <button className='ui primary  button'>Edit</button>
-               <button className='ui negative button'>Delete</button>   
+               <div className='ui right floated content'>
+               <Link to={`/steams/edit/${steam.id}`} className='ui primary  button'>Edit</Link>
+               <Link to={`/steams/delete/${steam.id}`} className='ui negative button'>Delete</Link>   
                 </div>
             )
-        }
-        else {
-            return <></>;
         }
     }
 
@@ -30,7 +27,7 @@ class StreamList extends React.Component {
                 <div className='item' key={steam.id}>
                     {this.renderAdmin(steam)}
                     
-                    <i className='large middle aligned icon camera' />
+                    <i className='large middle aligned icon video' />
                     <div className='content'>
                         {steam.title}
                         <div className='description' >
@@ -56,7 +53,6 @@ class StreamList extends React.Component {
     }
 
     render() {
-        console.log(this.props.steams)
     return (
         <div>
             <h2>Steams</h2>
