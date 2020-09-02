@@ -30,10 +30,10 @@ class StreamList extends React.Component {
                     <i className='large middle aligned icon video' />
                     <div className='content'>
                         <Link to={`/steams/${steam.id}`}>
-                        {steam.title}
+                        <h4>{steam.title}</h4>
                         </Link>
                         <div className='description' >
-                            {steam.description}
+                            <h5>{steam.description}</h5>
                         </div>
                     </div>
                 </div> 
